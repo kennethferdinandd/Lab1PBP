@@ -26,7 +26,7 @@ def show_json(request):
 def show_wishlist(request):
     context = {
     'list_barang': data_barang_wishlist,
-    'nama': 'Kak Cinoy',
+    'nama': 'Kenneth Ferdinand',
     'last_login': request.COOKIES['last_login'],
 }
     return render(request, "wishlist.html", context)
