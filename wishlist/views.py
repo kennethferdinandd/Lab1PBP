@@ -31,6 +31,15 @@ def show_wishlist(request):
 }
     return render(request, "wishlist.html", context)
 
+
+@login_required(login_url='/wishlist/login/')
+def show_wishlist_ajax(request):
+    context = {
+    'nama': 'Kenneth Ferdinand',
+    'last_login': request.COOKIES['last_login'],
+}
+    return render(request, "wishlist_ajax.html", context)
+
 def show_json_by_id(request, id) :
     data = BarangWishlist.objects.filter(pk=id)
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
